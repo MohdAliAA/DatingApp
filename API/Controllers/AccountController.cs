@@ -17,7 +17,7 @@ public class AccountController(DataContext context, ITokenServices tokenServices
 
     public async Task<ActionResult<UserDto>>Register(RegisterDto registerDto)
     {
-        if(await UserExits(registerDto.username))
+        if(await UserExits(registerDto.Username))
         return BadRequest("Username is taken");
 
         using var hmac = new HMACSHA512();
@@ -25,8 +25,8 @@ public class AccountController(DataContext context, ITokenServices tokenServices
         var user = new AppUsers
         {
             
-            UserName = registerDto.username.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.password)),
+            UserName = registerDto.Username.ToLower(),
+            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
             PasswordSalt = hmac.Key,
 
         };
@@ -49,8 +49,8 @@ public class AccountController(DataContext context, ITokenServices tokenServices
 
     public async Task<ActionResult<UserDto>>UserLogin (LoginDto loginDto)
     {
-         var user = await context.Users.SingleOrDefaultAsync(x=>x.UserName == loginDto.username.ToLower()) ;
-
+         var user = await context.Users.FirstOrDefaultAsync(x=>x.UserName == loginDto.username.ToLower()) ;
+ 
          if (user == null)
          {
             return Unauthorized("Invalid Username");
