@@ -1,12 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { AccountService } from '../../_services/account.service';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-test-errors',
   standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './test-errors.component.html',
   styleUrl: './test-errors.component.css'
 })

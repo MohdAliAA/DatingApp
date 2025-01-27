@@ -8,7 +8,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const toastr = inject(ToastrService);
 
-  return next(req).pipe(catchError(error=>{
+  return next(req).pipe(catchError((error)=>{
     if(error){
       switch (error.status) {
         case 400:
@@ -33,7 +33,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
             router.navigateByUrl('/not-found');
           break;      
           case 500:
-            const navigationextras: NavigationExtras = {state: error.error};
+            const navigationextras: NavigationExtras = {state: {error: error.error}};
             router.navigateByUrl('/server-error', navigationextras);
           break;      
         default:
