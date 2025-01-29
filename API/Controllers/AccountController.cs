@@ -17,27 +17,28 @@ public class AccountController(DataContext context, ITokenServices tokenServices
 
     public async Task<ActionResult<UserDto>>Register(RegisterDto registerDto)
     {
-        if(await UserExits(registerDto.Username))
-        return BadRequest("Username is taken");
+        // if(await UserExits(registerDto.Username))
+        // return BadRequest("Username is taken");
 
-        using var hmac = new HMACSHA512();
+        // using var hmac = new HMACSHA512();
 
-        var user = new AppUsers
-        {
+        // var user = new AppUsers
+        // {
             
-            UserName = registerDto.Username.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key,
+        //     UserName = registerDto.Username.ToLower(),
+        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt = hmac.Key,
 
-        };
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
+        // };
+        // context.Users.Add(user);
+        // await context.SaveChangesAsync();
 
-        return new UserDto
-        {
-            Username = user.UserName,
-            Token = tokenServices.CreateToken(user)
-        };
+        // return new UserDto
+        // {
+        //     Username = user.UserName,
+        //     Token = tokenServices.CreateToken(user)
+        // };
+        return Ok();
     }
 
     private async Task<bool> UserExits(string username)
