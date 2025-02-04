@@ -12,23 +12,23 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
     http = inject (HttpClient);
     registerMode = false;
-    user: any;
+    //user: any;
 
   
   ngOnInit(): void {
-    this.getUsers();
+    //this.getUsers();
   }
 
   
-  getUsers()
-  {
-    this.http.get('https://localhost:5042/api/User').subscribe({
-      next: response => this.user = response,
-      error: error => console.log(error),
-      complete: () =>  console.log('Request is complete'),
+  // getUsers()
+  // {
+  //   this.http.get('https://localhost:5042/api/User').subscribe({
+  //     next: response => this.user = response,
+  //     error: error => console.log(error),
+  //     complete: () =>  console.log('Request is complete'),
 
-    })
-  }
+  //   })
+  //}
 
 
   registerToggle()

@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Style for the tabset container */
+.members-tabset {
+    /* border: 1px solid #ddd; */
+    /* border-radius: 8px; */
+    background: #fff;
+    padding: 15px;
+}
+
+/* Style for the tab headers */
+.members-tabset .nav-tabs {
+    /* border-bottom: 2px solid #e2720f; */
+}
+
+.members-tabset .nav-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+.members-tabset .nav-tabs .nav-link {
+    color: #555555;
+    border: 1px solid transparent;
+    /* border-top-left-radius: 5px; */
+    /* border-top-right-radius: 5px; */
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.members-tabset .nav-tabs .nav-link:hover {
+    background-color: #f8f9fa;
+    /* border-color: #e26a0e #d8842f #fff; */
+    color: #d16217;
+}
+
+/* Active tab styling */
+.members-tabset .nav-tabs .nav-link.active {
+    background-color: #ce601b;
+    color: white;
+    /* border-color: #ff6f00 #ff8000 #fff; */
+}
+
+/* Tab content area */
+.members-tabset .tab-content {
+    padding: 15px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 5px; */
+    border-top: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .members-tabset {
+        padding: 10px;
+    }
+    .members-tabset .nav-tabs .nav-link {
+        padding: 8px;
+    }
+}
+
